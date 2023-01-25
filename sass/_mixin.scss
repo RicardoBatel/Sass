@@ -1,0 +1,20 @@
+/* Mixin */
+
+@mixin titulo($cor, $cor-bg:black) {
+  color: $cor; 
+  background: $cor-bg;
+  padding: 10px 5px;
+}
+
+@mixin tema($tema: padrão){
+  @if($tema == natal){
+    background: red;
+    color: white;
+  }@else if($tema == blackfriday){
+    background: black;
+    color: white;
+  }@else{
+    background: blue;
+    color: white;
+  }
+}

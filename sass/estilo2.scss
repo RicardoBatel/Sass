@@ -7,3 +7,66 @@
     margin-top: 2px;
   }
 }
+
+h1 {  
+  @include titulo(white);
+}
+
+h2 {  
+  @include titulo(yellow);
+}
+
+/* Herança */
+/* Multiplas diretivas */
+.classe1 {
+  color: red;
+}
+
+.classe2 {
+  background: black;
+}
+
+.vermelho {
+ @extend .classe1;
+ @extend .classe2;
+}
+
+/*
+Encadeamento de diretivas
+Placeholders(%)
+*/
+%pai {
+  color: red;
+}
+
+%filho {
+  @extend %pai;
+  background: black;
+}
+
+.erro {
+  @extend %filho;
+  padding: 10px;
+  border: 1px solid red;
+}
+
+/*Diretivas de controle*/
+@if ($cor == green) {
+  .teste{
+    color: $cor;
+  }
+}@else if($cor == red){
+  .teste{
+    color: $cor;
+  }
+}@else{
+  .teste{
+    color: $cor;
+  }
+}
+
+/*Diretivas de controle e Mixin*/
+
+body{
+  @include tema();
+}
