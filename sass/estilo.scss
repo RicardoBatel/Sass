@@ -1,5 +1,61 @@
-$cor: red;
+/* FOR */
 
-h1 {
-  color: $cor;
+//throungh vai de 1 ao 3 (inclusive o 3)
+//to vai de 1 ao 3 (não inclui o 3)
+@for $i from 1 through 5 {
+  .item-#{$i} {
+    background: green;
+    margin-bottom:2px;
+  }
+}
+
+/* while */
+
+$contador: 1;
+@while $contador < 5 {
+  .item-#{$contador} {
+    background: orange;
+    margin-bottom:2px;
+  }
+  $contador: $contador + 1;
+}
+
+/* each */
+
+$lista: green, yellow, red;
+$contador: 1;
+@each $cor in $lista {
+
+  .item-#{$contador} {
+    background: $cor;
+    margin-bottom:2px;
+  }
+
+  $contador: $contador + 1;
+  
+}
+
+/* Funções */
+
+$total: 12;
+@function largura-coluna($coluna) {
+  @return percentage($coluna/$total);
+}
+
+@for $i from 1 through $total {
+  .col-#{$i} {
+    width: largura-coluna($i);
+    background: green;
+  }
+}
+
+/*
+outras funções
+mix(green, orange, 50%) - mesclar 2 cores
+darken(green, 10%) - deixar mais escuro as cores
+lighten(green, 20%) - deixa as cores mais claras
+*/
+.alerta {
+  background: lighten(green, 20%);
+  color: yellow;
 }
